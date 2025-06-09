@@ -20,8 +20,8 @@
 
 <body>
     <div id="wrapper">
-        <audio autoplay loop>
-          <source src="happy-birthday.mp3" type="audio/mpeg">
+        <audio id="bgAudio" hidden>
+          <source src="happy-birthday.mp3" type="audio/mp3">
           Your browser does not support the audio element.
         </audio>
         <div class="flag__birthday">
@@ -56,7 +56,7 @@
                     <span></span>
                 </div>
                 <div class="btn">
-                    <button id="btn__letter">
+                    <button id="btn__letter" onclick="document.getElementById('bgAudio').play()">
                         <div class="mail">
                             Click Here Vinit
                             <i class="fa-regular fa-envelope"></i>
@@ -134,11 +134,7 @@
                         <img src="images/unnamed.png" alt="">
                     </div>
                     <h4 class="username">To: Vinit 💖<span class="underline"></span></h4>
-
                     <h3>Happy Birthday</h3>
-                    <div class="imageCute">
-                        <img src="cute1.png" alt="">
-                    </div>
                 </div>
                 <div class="card2">
                     <div class="card2-content">
@@ -158,7 +154,7 @@
                         </h2>
 
                         <div class="imageCute2">
-                            <img src="cute2.png" alt="">
+                            <img src="images/cake.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -203,25 +199,6 @@
             $(".letter__border").slideDown();
         }, 1000)
         setTimeout(function () {
-            intervalTitle = setInterval(function () {
-                if (currentIndexTitle < charArrTitle.length) {
-                    document.querySelector(".title__letter").textContent += charArrTitle[currentIndexTitle];
-                    let i = document.createElement("i");
-                    i.className = "fa-solid fa-heart"
-                    document.querySelector(".title__letter").appendChild(i)
-                    currentIndexTitle++;
-                }
-                else {
-                    clearInterval(intervalTitle)
-                }
-            }, 100)
-        }, 2000)
-        setTimeout(function () {
-            document.querySelector("#heart__letter").classList.add("animationOp");
-            document.querySelector(".love__img").classList.add("animationOp");
-            document.querySelector("#mewmew").classList.add("animationOp");
-        }, 2800)
-        setTimeout(function () {
             document.querySelectorAll(".heart").forEach((item) => {
                 item.classList.add("animation")
             })
@@ -233,9 +210,6 @@
         text__letter.textContent = "";
         currentIndexLetter = 0
         currentIndexTitle = 0
-        document.querySelector("#heart__letter").classList.remove("animationOp");
-        document.querySelector(".love__img").classList.remove("animationOp");
-        document.querySelector("#mewmew").classList.remove("animationOp");
         document.querySelectorAll(".heart").forEach((item) => {
             item.classList.remove("animation")
         })
